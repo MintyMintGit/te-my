@@ -1,0 +1,122 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\.bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\package.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\angular\.bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\angular\angular-csp.css" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\angular\bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\angular\package.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\.bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\package.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\.bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\css\font-awesome.css" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\css\font-awesome.min.css" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\jquery\.bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\jquery\bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\jquery\MIT-LICENSE.txt" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\lodash\.bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\lodash\bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\lodash\LICENSE.txt" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\.bower.json" />
+    <Content Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\bower.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+    <PackageReference Include="Syncfusion.EJ.AspNet.Core" Version="15.3600.0.33" />
+    <PackageReference Include="Westwind.AspNetCore" Version="0.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SyncFusion.Models\1TE_MY.Models.csproj" />
+    <ProjectReference Include="..\SyncFusion.Repository\1TE_MY.Repository.csproj" />
+    <ProjectReference Include="..\SyncFusion.Services\1TE_MY.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\angular-sanitize.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\angular-sanitize.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\angular-sanitize.min.js.map" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\index.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular-sanitize\README.md" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular\angular.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular\angular.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular\angular.min.js.gzip" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular\angular.min.js.map" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular\index.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\angular\README.md" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\dist\js\npm.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\Gruntfile.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\package.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\bootstrap\README.md" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\.gitignore" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\.npmignore" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\css\font-awesome.css.map" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\jquery\dist\jquery.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\lodash\lodash.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\lodash\lodash.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\angular-file-upload-all.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\angular-file-upload-all.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\angular-file-upload-shim.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\angular-file-upload-shim.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\angular-file-upload.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\angular-file-upload.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\FileAPI.flash.swf" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\FileAPI.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\ng-file-upload-all.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\ng-file-upload-all.min.js" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\npm-debug.log" />
+    <None Include="wwwroot\LocalizationAdmin\bower_components\ng-file-upload\README.md" />
+  </ItemGroup>
+
+</Project>

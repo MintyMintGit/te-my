@@ -1,0 +1,97 @@
+﻿<style type="text/css">
+    .textarea {
+        border: 1px solid;
+        padding: 10px;
+        position: relative;
+        text-align: justify;
+        width: 463px;
+        color: gray;
+        margin: 0 auto;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <ej-tab id="tabSample">
+            <e-tab-items>
+                <e-tab-item id="RadialMenu" text="RadialMenu">
+                    <e-content-template>
+                        <ej-radial-menu id="defaultradialmenu" image-class="imageclass" auto-open="true">
+                            <e-radial-menu-items>
+                                <e-radial-menu-item image-url="http://mvc.syncfusion.com/demos/web/Images/RadialMenu/copy.png" text="Copy" click="copy" enabled="true">
+                                </e-radial-menu-item>
+                                <e-radial-menu-item image-url="http://mvc.syncfusion.com/demos/web/Images/RadialMenu/paste.png" click="paste" text="Paste">
+                                </e-radial-menu-item>
+                                <e-radial-menu-item image-url="http://mvc.syncfusion.com/demos/web/Images/RadialMenu/redo.png" click="redo" text="Redo">
+                                </e-radial-menu-item>
+                                <e-radial-menu-item image-url="http://mvc.syncfusion.com/demos/web/Images/RadialMenu/undo.png" click="undo" text="Undo">
+                                </e-radial-menu-item>
+                            </e-radial-menu-items>
+                        </ej-radial-menu>
+                    </e-content-template>
+                </e-tab-item>
+                <e-tab-item id="Menu" text="Menu">
+                    <e-content-template>
+                        <ej-Menu id="SyncfusionProducts">
+                            <e-menu-fields dataSource="ViewBag.datasource" id="pid" text="mtext" parent-id="parent"></e-menu-fields>
+                        </ej-Menu>
+                    </e-content-template>
+                </e-tab-item>
+                <e-tab-item id="Upload" text="Upload">
+                    <e-content-template>
+                        <ej-upload-box id="UploadDefault" save-url="/Order/UploadFiles"></ej-upload-box>
+                    </e-content-template>
+                </e-tab-item>
+            </e-tab-items>
+        </ej-tab>
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    var rteObj, radialEle = $('#defaultradialmenu');
+    $(function () {
+        if (!(ej.browserInfo().name == "msie" && ej.browserInfo().version < 9)) {
+            $("#radialtarget1").parent().css("position", "relative");
+        }
+        else {
+            $("#contentDiv").html("Radial Menu is only supported from Internet Explorer Versioned 9 and above.").css({ "font-size": "20px", "color": "red" });
+        }
+        $(window).resize(function () {
+            if (ej.isMobile() && ej.isPortrait())
+                $('#defaultradialmenu').css({ "left": 25 })
+        });
+    });
+    function rteCreate(e) {
+        rteObj = this;
+    }
+    function radialShow(e) {
+        var target = $("#radialtarget1"), radialRadius = 150, radialDiameter = 2 * radialRadius,
+            // To get Iframe positions
+            iframeY = e.event.clientY, iframeX = e.event.clientX,
+            // To set Radial Menu position within target
+            x = iframeX > target.width() - radialRadius ? target.width() - radialDiameter : (iframeX > radialRadius ? iframeX - radialRadius : 0),
+            y = iframeY > target.height() - radialRadius ? target.height() - radialDiameter : (iframeY > radialRadius ? iframeY - radialRadius : 0);
+        radialEle.ejRadialMenu("setPosition", x, y);
+        $('iframe').contents().find('body').blur();
+    }
+
+    function copy(e)
+    {
+        alert("clicked copy");
+
+    }
+    function paste(e) {
+        alert("clicked paste");
+
+    }
+    function redo(e) {
+        alert("clicked redo");
+
+    }
+    function undo(e) {
+        alert("clicked undu");
+
+    }
+</script>
+

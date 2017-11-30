@@ -1,0 +1,127 @@
+﻿@model OrderDTO
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Customers</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.CustomerID)</span>
+                <ej-drop-down-list css-class="form-input" id="CustomerId" selected-index="@Model.CustomersList.IndexOf(@Model.CustomersList.Where(x=>x.CustomerID==Model.CustomerID).FirstOrDefault())" width="100%" datasource="@Model.CustomersList">
+                    <e-drop-down-list-fields text="CompanyName" value="CustomerID" />
+                </ej-drop-down-list>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Ship Via</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShipVia)</span>
+                <ej-drop-down-list id="ShipVia" width="100%" selected-items="new List<int> {Convert.ToInt32(Model.ShipVia) }" datasource="@Model.ShippersList">
+                    <e-drop-down-list-fields text="CompanyName" value="ShipperID" />
+                </ej-drop-down-list>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Products</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ProductID)</span>
+                <ej-drop-down-list id="ProductID" width="100%" selected-items="new List<int> {Convert.ToInt32(Model.ProductID) }" value="ProductID" template="<span>${ProductName}</span><span>$${UnitPrice}</span>" datasource="@Model.ProductsList">
+                    <e-drop-down-list-fields text="ProductName" value="ProductID" />
+                </ej-drop-down-list>
+                @*<e-drop-down-list-fields text="ProductName" value="ProductID" />*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Unit price</label><span class="e-color-code">@Html.ValidationMessageFor(m => m.UnitPrice)</span>
+                <ej-autocomplete id="UnitPrice" ej-for="UnitPrice" select-value-by-key="@Model.UnitPrice"  datasource="@Model.ProductsList" watermark-text="Select a Unit price" width="100%">
+                    <e-autocomplete-fields text="UnitPrice" key="UnitPrice" />
+                </ej-autocomplete>
+
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Quantity</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.Quantity)</span>
+                <ej-numeric-text-box id="Quantity" width="100%" decimal-places="0" ej-for="Quantity"/>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Discount</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.Discount)</span>
+                <ej-numeric-text-box id="Discount" width="100%" min-value="0" max-value="1" decimal-places="2" ej-for="Discount" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Order Date</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.OrderDate)</span>
+                <ej-date-time-picker width="100%" id="datepick" min-date="@DateTime.Now" value="@DateTime.Now" ej-for="OrderDate" read-only="true"/>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Required Date</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.RequiredDate)</span>
+                <ej-date-time-picker width="100%" id="RequiredDate" min-date="@DateTime.Now" value="@DateTime.Now" ej-for="RequiredDate" read-only="true" />
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Shipped Date</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShippedDate)</span>
+                <ej-date-time-picker width="100%" id="ShippedDate" min-date="@DateTime.Now" value="@DateTime.Now" ej-for="ShippedDate" read-only="true"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Freight</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.Freight)</span>
+                <ej-numeric-text-box width="100%" id="Freight" decimal-places="2" ej-for="Freight" read-only="true"/>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Ship Name</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShipName)</span>
+                @Html.TextBox("Textbox","",new { @class = "e-textbox",@readonly="readonly"})
+                @*@Html.TextBoxFor(m => m.ShipName, new { @class = "form-control"})*@
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Ship Address</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShipAddress)</span>
+                @Html.TextBoxFor(m => m.ShipAddress, new { @class = "e-textbox" })
+                @*@Html.TextBoxFor(m => m.ShipAddress, new { @class = "form-control" })*@
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Ship City</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShipCity)</span>
+                @Html.TextBoxFor(m => m.ShipCity, new { @class = "e-textbox" })
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Ship Region</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShipRegion)</span>
+                @Html.TextBoxFor(m => m.ShipRegion, new { @class = "e-textbox" })
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>ShipPostalCode</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShipPostalCode)</span>
+                <ej-numeric-text-box id="ShipPostalCode" ej-for="ShipPostalCode" width="100%" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="form-group col-md-12">
+                <label>Ship Country</label> <span class="e-color-code">@Html.ValidationMessageFor(m => m.ShipCountry)</span>
+                @Html.TextBoxFor(m => m.ShipCountry, new { @class = "e-textbox" })
+                @*@Html.HiddenFor(m => m.OrderID, new { @class = "form-control" })*@
+                @Html.HiddenFor(m => m.OrderID, new { @class = "e-textbox" })
+            </div>
+        </div>
+    </div>
+        <div class="col-md-4 col-sm-4">
+            <br />
+            <input type="submit" class="btn btn-info" value="Save Order" />
+        </div>

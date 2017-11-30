@@ -1,0 +1,31 @@
+﻿@model List<_1TE_MY.Models.DTO.Registration_Documents>
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+
+<div class="row">
+    <ej-grid id="DocumentGrid"   enable-responsive-row="true" is-responsive="true" datasource="@Model" allow-text-wrap="true">
+        <e-columns>
+
+
+            <e-column field="Sno" text-align="Center" header-text-align="TextAlign.Center" header-text="@DbRes.T("SNo", "Registration")" ></e-column>
+            <e-column field="DocumentType" allow-text-wrap="true" header-text="@DbRes.T("DocumentType", "Registration")" ></e-column>
+            <e-column field="FileName" template-id="#FilenameTemplate" header-text="@DbRes.T("FileName", "Registration")" text-align="Left" ></e-column>
+            <e-column field="IsMandatory" header-text="@DbRes.T("Mandatory", "Registration")" text-align="Left" ></e-column>
+
+            <e-column field="Id" header-text="@DbRes.T("Upload", "Registration")"  text-align="Center" header-text-align="TextAlign.Center" tooltip="Edit" template-id="#fileTemplate"></e-column>
+
+
+        </e-columns>
+
+    </ej-grid>
+    <div class="box-footer float-right">
+        <button type="submit" class="btn btn-primary uppercase pull-right">next <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+    </div>
+</div>
+<script type="text/x-jsrender" id="fileTemplate">
+    <input type="file" />
+</script>
+<script type="text/x-jsrender" id="FilenameTemplate">
+    <a href="javascript:void(0);">{{:FileName}}</a>
+</script>

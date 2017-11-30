@@ -1,0 +1,193 @@
+﻿@using _1TE_MY.Models.DTO
+@using _1TE_MY.Models.Models
+@model _1TE_MY.Models.DTO.Registration_CompanyInformation
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+
+
+<form asp-controller="Account" asp-action="AddCompany" data-ajax="true" data-ajax-method="POST" d data-ajax-mode="replace" data-ajax-update="#acontent">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="CompanyName">@DbRes.T("CompanyName", "Registration")</label>
+				<input type="text" asp-for="CompanyName" class="e-textbox" id="CompanyName" placeholder="@DbRes.T("CompanyName", "Registration")">
+			</div>
+		</div>
+
+		<div class="col-md-6">
+
+			<div class="form-group ">
+				<label for="Address1">@DbRes.T("Address1", "Registration")</label>
+				<input type="text" asp-for="Address1" class="e-textbox" id="Address1" placeholder="@DbRes.T("Address1", "Registration")">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="OganizationType">@DbRes.T("OrganizationType", "Registration")</label>
+
+				<ej-drop-down-list id="OganizationType" ej-for="@Model.OganizationType" datasource="ViewBag.OrganisationDataSource" watermark-text="@DbRes.T("OganizationType", "Registration")" width="100%">
+
+					<e-drop-down-list-fields text="Text" value="Value" />
+				</ej-drop-down-list>
+			</div>
+		</div>
+
+		<div class="col-md-6">
+
+			<div class="form-group ">
+				<label for="Address2">@DbRes.T("Address2", "Registration")</label>
+				<input type="text" asp-for="Address2" class="e-textbox" id="Address2" placeholder="@DbRes.T("Address2", "Registration")">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="CompanyRegisterationNumber">@DbRes.T("CompanyRegisterNo", "Registration")</label>
+				<input type="text" asp-for="CompanyRegisterationNumber" class="e-textbox" id="CompanyRegisterationNumber" placeholder="@DbRes.T("CompanyRegisterNo", "Registration")">
+			</div>
+		</div>
+
+		<div class="col-md-6">
+
+			<div class="form-group ">
+				<label for="Address3">@DbRes.T("Address3", "Registration")</label>
+				<input type="text" asp-for="Address3" class="e-textbox" id="Address3" placeholder="@DbRes.T("Address3", "Registration")">
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="GSTRegisterationNumber">@DbRes.T("GSTRegisterationNo", "Registration")</label>
+				<input type="text" asp-for="GSTRegisterationNumber" class="e-textbox" id="GSTRegisterationNumber" placeholder="@DbRes.T("GSTRegisterationNo", "Registration")">
+			</div>
+		</div>
+
+		<div class="col-md-6">
+
+			<div class="form-group ">
+				<label for="City">@DbRes.T("City", "Registration")</label>
+
+				<ej-drop-down-list id="City" ej-for="@Model.City" datasource="ViewBag.City_Cascading" watermark-text="@DbRes.T("CityCode", "Registration")" enabled="false" width="100%">
+
+					<e-drop-down-list-fields text="CityName" value="CityID" />
+				</ej-drop-down-list>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="GSTRegisterationDate">@DbRes.T("GSTRegisterationDate", "Registration")</label>
+				<ej-date-picker ej-for="GSTRegisterationDate" watermark-text="@DbRes.T("GSTRegisterationDate", "Registration")" id="GSTRegisterationDate" width="100%" date-format="yyyy/MM/dd"></ej-date-picker>
+			</div>
+		</div>
+		<div class="col-md-6">
+
+			<div class="form-group ">
+				<label for="State">@DbRes.T("State", "Registration")</label>
+				@*<ej-drop-down-list id="State" width="100%" name="State" ej-for="State" watermark-text="@DbRes.T("State", "Registration")">
+
+					</ej-drop-down-list>*@
+				<ej-drop-down-list id="State" ej-for="@Model.State" datasource="ViewBag.State_Cascading" watermark-text="@DbRes.T("StateCode", "Registration")" enabled="false" width="100%" cascade-to="City">
+
+					<e-drop-down-list-fields text="StateName" value="StateID" />
+				</ej-drop-down-list>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="DagangNetAccountNo">@DbRes.T("DagangNetAccountNo", "Registration")</label>
+				<input type="text" asp-for="DagangNetAccountNo" class="e-textbox" id="DagangNetAccountNo" placeholder="@DbRes.T("DagangNetAccountNo", "Registration")">
+			</div>
+		</div>
+
+
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="PostalCode">@DbRes.T("PostalCode", "Registration")</label>
+				<input type="text" asp-for="PostalCode" class="e-textbox" id="PostalCode" placeholder="@DbRes.T("PostalCode", "Registration")">
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="ForwardingAgentCode">@DbRes.T("ForwardingAgentCode", "Registration")</label>
+				<input type="text" asp-for="ForwardingAgentCode" class="e-textbox" id="ForwardingAgentCode" placeholder="@DbRes.T("ForwardingAgentCode", "Registration")">
+			</div>
+
+		</div>
+		<div class="col-md-6">
+
+			<div class="form-group ">
+				<label for="Country">@DbRes.T("Country", "Registration")</label>
+
+				@*<ej-drop-down-list id="CountryId" ej-for="@Model.Country" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+						<e-datamanager datatype="json" json="(IEnumerable<DropdownDTO>)(ViewBag.DesignationDataSource)"></e-datamanager>
+						<e-drop-down-list-fields text="Text" value="Value" />
+					</ej-drop-down-list>*@
+
+				<ej-drop-down-list id="CountryId" ej-for="@Model.Country" datasource="ViewBag.Country_Cascading" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%" cascade-to="State">
+
+					<e-drop-down-list-fields text="CountryName" value="CountryID" />
+				</ej-drop-down-list>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group ">
+				<label for="ShippingAgentCode">@DbRes.T("ShippingAgentCode", "Registration")</label>
+				<input type="text" asp-for="ShippingAgentCode" class="e-textbox" id="ShippingAgentCode" placeholder="@DbRes.T("ShippingAgentCode", "Registration")">
+			</div>
+		</div>
+
+		<div class="col-md-6">
+
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="box-footer float-right">
+			<button type="submit" class="btn btn-primary uppercase pull-right">@DbRes.T("Next", "Registration") <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+		</div>
+	</div>
+</form>
+	<script type="text/javascript">
+
+        //bind below onClick action to button
+        function onClick() {
+
+            //create instance for datePicker.
+            // only after control creation we can get dateObj otherwise it throws exception.
+            var dateObj = $("#datePicker").ejDatePicker('instance');
+
+            //set value using date object
+            dateObj.option('value', new Date());
+
+            //get value using date object and displays in alert box
+            alert(dateObj.option('value'));
+        }
+
+	</script>

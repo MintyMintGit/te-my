@@ -1,0 +1,212 @@
+﻿@using _1TE_MY.Models.DTO
+@model List<Registration_ContactPerson>
+
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+
+<form asp-controller="Account" asp-action="AddContact" data-ajax="true" data-ajax-method="POST" d data-ajax-mode="replace" data-ajax-update="#acontent">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@DbRes.T("BillingContact", "Registration")</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="Name">@DbRes.T("Name", "Registration")</label>
+                            @Html.TextBoxFor(d => d[0].FullName, new { @class = "e-textbox", @placeholder = @DbRes.T("FullName", "Registration") })
+                            @Html.HiddenFor(d => d[0].ContactTypeID, new { Value = 1 })
+                        </div>
+                        <div class="form-group  col-md-5" style="margin-top:5%">
+                            @Html.CheckBox("SameName", false, new { })
+                            <label for="SameAs">@DbRes.T("SameAs", "Registration")</label>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="Designation">@DbRes.T("Designation", "Registration")</label>
+                            @*@Html.TextBoxFor(d => d[0].DesignationID, new { @class = "e-textbox", @placeholder = @DbRes.T("Designation", "Registration") })*@
+                            <ej-drop-down-list id="billDesignationID" ej-for="@Model[0].DesignationID" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+                                <e-datamanager datatype="json" json="(IEnumerable<DropdownDTO>)(ViewBag.DesignationDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="Text" value="Value" />
+                            </ej-drop-down-list>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="Email">@DbRes.T("EmailID", "Registration")</label>
+                            @Html.TextBoxFor(d => d[0].ContactEmail, new { @class = "e-textbox", @placeholder = @DbRes.T("EmailID", "Registration") })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>@DbRes.T("OfficePhoneNo", "Registration") 1</label>
+                            @*@{Html.EJ().DropDownListFor(d => d[0].OfficeCountryCodeID).WatermarkText(@DbRes.T("CountryCode", "Registration")).Width("100%").Render(); }*@
+                            <ej-drop-down-list id="billOfficeCountryCode" ej-for="@Model[0].OfficeCountryCodeID" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+                                <e-datamanager datatype="json" json="(IEnumerable<CountryCodeDTO>)(ViewBag.CountryCodeDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="DisplayText" value="CountryID" />
+                            </ej-drop-down-list>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="OfficePhoneNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[0].OfficePhoneNo, new { @class = "e-textbox", @placeholder = @DbRes.T("PhoneNo", "Registration") })
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="OfficePhoneNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[0].Extention, new { @class = "e-textbox", @placeholder = @DbRes.T("Extension", "Registration") })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>@DbRes.T("MobilePhoneNo", "Registration")</label>
+                            @*@{Html.EJ().DropDownList("BillingMobileCountryCode").WatermarkText(@DbRes.T("CountryCode", "Registration")).Width("100%").Render(); }*@
+                            <ej-drop-down-list id="billMobileCountryCode" ej-for="@Model[0].MobileCountryCodeID" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+                                <e-datamanager datatype="json" json="(IEnumerable<CountryCodeDTO>)(ViewBag.CountryCodeDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="DisplayText" value="CountryID" />
+                            </ej-drop-down-list>
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="MobilePhoneNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[0].MobilePhoneNo, new { @class = "e-textbox", @placeholder = @DbRes.T("PhoneNo", "Registration") })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>@DbRes.T("FaxNo", "Registration")</label>
+                            @*@{Html.EJ().DropDownListFor(d => d[0].FaxCountryCodeID).WatermarkText(@DbRes.T("CountryCode", "Registration")).Width("100%").Render(); }*@
+                            <ej-drop-down-list id="billFaxCountryCode" ej-for="@Model[0].FaxCountryCodeID" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+                                <e-datamanager datatype="json" json="(IEnumerable<CountryCodeDTO>)(ViewBag.CountryCodeDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="DisplayText" value="CountryID" />
+                            </ej-drop-down-list>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="FaxNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[0].FaxNo, new { @class = "e-textbox", @placeholder = @DbRes.T("PhoneNo", "Registration") })
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </div>
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@DbRes.T("OperationContact", "Registration")</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="Name">@DbRes.T("Name", "Registration")</label>
+                            @Html.TextBoxFor(d => d[1].FullName, new { @class = "e-textbox", @placeholder = @DbRes.T("FullName", "Registration") })
+                            @Html.HiddenFor(d => d[1].ContactTypeID, new { Value = 2 })
+                        </div>
+                        <div class="form-group col-md-5" style="margin-top:5%">
+                            @Html.CheckBox("SameName", false, new { })
+                            <label for="SameName">@DbRes.T("SameAs", "Registration")</label>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="Designation">@DbRes.T("Designation", "Registration")</label>
+                            @*@Html.TextBoxFor(d => d[1].DesignationID, new { @class = "e-textbox", @placeholder = @DbRes.T("Designation", "Registration") })*@
+                            <ej-drop-down-list ej-for="@Model[1].DesignationID" id="opDesignationID"  watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+                                <e-datamanager datatype="json" json="(IEnumerable<DropdownDTO>)(ViewBag.DesignationDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="Text" value="Value" />
+                            </ej-drop-down-list>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="Email">@DbRes.T("EmailID", "Registration")</label>
+                            @Html.TextBoxFor(d => d[1].ContactEmail, new { @class = "e-textbox", @placeholder = @DbRes.T("Email", "Registration") })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>@DbRes.T("OfficePhoneNo", "Registration")</label>
+                            @*@{Html.EJ().DropDownList("OpOfficeCountryCode").WatermarkText(@DbRes.T("CountryCode", "Registration")).Width("100%").Render(); }*@
+                            <ej-drop-down-list id="opOfficeCountryCode" ej-for="@Model[1].OfficeCountryCodeID" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+                                <e-datamanager datatype="json" json="(IEnumerable<CountryCodeDTO>)(ViewBag.CountryCodeDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="DisplayText" value="CountryID" />
+                            </ej-drop-down-list>
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="OfficePhoneNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[1].OfficePhoneNo, new { @class = "e-textbox", @placeholder = @DbRes.T("PhoneNo", "Registration") })
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="OfficePhoneNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[1].Extention, new { @class = "e-textbox", @placeholder = @DbRes.T("Extension", "Registration") })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>@DbRes.T("MobilePhoneNo", "Registration")</label>
+                            @*@{Html.EJ().DropDownList("OpMobileCountryCode").WatermarkText(@DbRes.T("CountryCode", "Registration")).Width("100%").Render(); }*@
+                            
+                            <ej-drop-down-list id="opMobileCountryCode" ej-for="@Model[1].MobileCountryCodeID" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+                                
+                                <e-datamanager datatype="json" json="(IEnumerable<CountryCodeDTO>)(ViewBag.CountryCodeDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="DisplayText" value="CountryID" />
+                            </ej-drop-down-list>
+
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="MobilePhoneNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[1].MobilePhoneNo, new { @class = "e-textbox", @placeholder = @DbRes.T("PhoneNo", "Registration") })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>@DbRes.T("FaxNo", "Registration")</label>
+                            @*@{Html.EJ().DropDownList("OperationsFaxCountryCode").WatermarkText(@DbRes.T("CountryCode", "Registration")).Width("100%").Render(); }*@
+                            <ej-drop-down-list id="opFaxCountryCode" ej-for="@Model[1].FaxCountryCodeID" watermark-text="@DbRes.T("CountryCode", "Registration")" width="100%">
+
+                                <e-datamanager datatype="json" json="(IEnumerable<CountryCodeDTO>)(ViewBag.CountryCodeDataSource)"></e-datamanager>
+                                <e-drop-down-list-fields text="DisplayText" value="CountryID" />
+                            </ej-drop-down-list>
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="MobilePhoneNo">&nbsp;</label>
+                            @Html.TextBoxFor(d => d[1].FaxNo, new { @class = "e-textbox", @placeholder = @DbRes.T("PhoneNo", "Registration") })
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+
+        </div>
+
+        <div class="box-footer float-right">
+            <button type="submit" class="btn btn-primary uppercase pull-right">next <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+        </div>
+    </div>
+
+</form>
+
+<div id="acontent"></div>

@@ -1,0 +1,81 @@
+﻿@model  _1TE_MY.Models.DTO.Registration_UserInformation
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+<form asp-controller="Account" asp-action="SaveRegistration" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#acontent">
+
+    <div class="col-md-12">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">@DbRes.T("LoginInformation", "Registration")</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="Emailaddress"></label>
+                    @Html.TextBoxFor(o => o.Email, new { @class = "e-textbox", placeholder = DbRes.T("EmailId", "Registration") })
+
+                </div>
+                <div class="form-group">
+                    <label for="Password"></label>
+                    @Html.PasswordFor(o => o.Password, new { @class = "e-textbox", placeholder = DbRes.T("Password", "Registration") })
+
+                </div>
+                <div class="form-group">
+                    <label for="ConfirmPassword"></label>
+                    @Html.PasswordFor(o => o.ConfirmPassword, new { @class = "e-textbox", placeholder = DbRes.T("ConfirmPassword", "Registration") })
+
+
+                </div>
+                <div class="form-group">
+                    <label for="FullName"> </label>
+                    @Html.TextBoxFor(o => o.FullName, new { @class = "e-textbox", placeholder = DbRes.T("FullName", "Registration") })
+                </div>
+                <div class="form-group padding-top-15">
+                    <label for="MobileCoutryCode"></label>
+                    <div class="col-xs-4 no-padding padding-left-10">
+                        @*<ej-drop-down-list id="MobileCountryCode" watermark-text="@DbRes.T("MobileCountryCode", "Registration")" width="90%"  datasource="@(IEnumerable<DropdownDTO>)ViewBag.Country">
+                                <e-drop-down-list-fields text="CountryDialCode" value="Value" />
+                            </ej-drop-down-list>*@
+                        <ej-drop-down-list id="MobileCountryID" watermark-text="@DbRes.T("MobileCountryCode", "Registration")" width="90%">
+                            <e-datamanager url="/common/GetMasters?value=Country" datatype="json" adaptor="@AdaptorType.UrlAdaptor"></e-datamanager>
+                            <e-drop-down-list-fields text="countryDialCode" value="value" />
+                        </ej-drop-down-list>
+                    </div>
+                    <div class="col-xs-8 no-padding">
+                        @Html.TextBoxFor(o => o.MobileNo, new { @class = "e-textbox", placeholder = DbRes.T("MobileNumber", "Registration") })
+                    </div>
+                </div>
+                <div class="form-group padding-top-15">
+                    <label for="Securityquestion"></label>
+
+                    <ej-drop-down-list id="SecurityQuestion" watermark-text="@DbRes.T("SecurityQuestion", "Registration")" width="100%">
+                        <e-datamanager url="/common/GetMasters?value=SecurityQuestion" datatype="json" adaptor="@AdaptorType.UrlAdaptor"></e-datamanager>
+                        <e-drop-down-list-fields text="text" value="value" />
+                    </ej-drop-down-list>
+
+
+
+                </div>
+
+                <div class="form-group">
+                    <label for="Answer"> </label>
+                    @Html.TextBoxFor(o => o.Answer, new { @class = "e-textbox", placeholder = DbRes.T("Answer", "Registration") })
+
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <div class="box-footer">
+
+                <button type="submit" class="btn btn-primary uppercase">@DbRes.T("SignUp", "Registration")</button>
+            </div>
+
+        </div>
+        <!-- /.box -->
+
+
+    </div>
+    </form>

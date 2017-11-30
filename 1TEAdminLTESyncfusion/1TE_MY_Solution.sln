@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1TE_MY", "1TE_MY.csproj", "{0EE32792-5732-4AB7-9F7C-1B8F13F18349}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1TE_MY.Services", "..\SyncFusion.Services\1TE_MY.Services.csproj", "{ED54B196-F8A4-475F-A80F-D85C2968C4C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1TE_MY.Repository", "..\SyncFusion.Repository\1TE_MY.Repository.csproj", "{A4E91AF1-F3D3-40AD-A2F0-E46870EFFE94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1TE_MY.Models", "..\SyncFusion.Models\1TE_MY.Models.csproj", "{C436AD12-A205-4A41-ACB3-4E84321E9C59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EE32792-5732-4AB7-9F7C-1B8F13F18349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE32792-5732-4AB7-9F7C-1B8F13F18349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EE32792-5732-4AB7-9F7C-1B8F13F18349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE32792-5732-4AB7-9F7C-1B8F13F18349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED54B196-F8A4-475F-A80F-D85C2968C4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED54B196-F8A4-475F-A80F-D85C2968C4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED54B196-F8A4-475F-A80F-D85C2968C4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED54B196-F8A4-475F-A80F-D85C2968C4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E91AF1-F3D3-40AD-A2F0-E46870EFFE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E91AF1-F3D3-40AD-A2F0-E46870EFFE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E91AF1-F3D3-40AD-A2F0-E46870EFFE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E91AF1-F3D3-40AD-A2F0-E46870EFFE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C436AD12-A205-4A41-ACB3-4E84321E9C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C436AD12-A205-4A41-ACB3-4E84321E9C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C436AD12-A205-4A41-ACB3-4E84321E9C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C436AD12-A205-4A41-ACB3-4E84321E9C59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA855AE0-E79C-4B1B-8F8C-5DCFE01BD855}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://vijayalayachola.visualstudio.com/
+		SccProjectUniqueName0 = 1TE_MY.csproj
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\SyncFusion.Models\\1TE_MY.Models.csproj
+		SccProjectName1 = ../SyncFusion.Models
+		SccLocalPath1 = ..\\SyncFusion.Models
+		SccProjectUniqueName2 = ..\\SyncFusion.Repository\\1TE_MY.Repository.csproj
+		SccProjectName2 = ../SyncFusion.Repository
+		SccLocalPath2 = ..\\SyncFusion.Repository
+		SccProjectUniqueName3 = ..\\SyncFusion.Services\\1TE_MY.Services.csproj
+		SccProjectName3 = ../SyncFusion.Services
+		SccLocalPath3 = ..\\SyncFusion.Services
+		SccLocalPath4 = .
+	EndGlobalSection
+EndGlobal

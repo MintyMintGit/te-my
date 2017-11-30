@@ -1,0 +1,76 @@
+﻿@model _1TE_MY.Models.Employees
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+@*@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor*@
+<link href="~/lib/login/login.css" rel="stylesheet" />
+<link href="~/lib/login/demo/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="Absolute-Center is-Responsive">
+            <div id="logo-container"><a href="#">
+                <img src="~/images/logo-2.png" width="60" /></a>
+            </div>
+
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "loginForm" }))
+                {
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = @DbRes.T("Email", "Login") })
+                    </div>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @DbRes.T("Password", "Login") })
+                    </div>
+                    @*<div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="RememberMe" id="RememberMe">  @DbRes.T("Rememberme", "Login")
+                        </label>
+                    </div>*@
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">@DbRes.T("Login", "Login")</button>
+                        @Html.ActionLink(@DbRes.T("Subscribe", "Login"), "Register", "Account","",new { @class= "btn btn-info pull-right" })
+                         
+                    </div>
+                    <div class="form-group">
+                        <a href="#">@DbRes.T("ForgotPassword", "Login")</a>
+                    </div>
+
+                }
+            </div>
+            <div class="text-center small">
+                Copyright &copy; 2017-2018 <a href="javascrip:void(0)">1TE MY</a>.  All rights
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div id="particles-js"></div>
+
+<!-- scripts -->
+<script src="~/lib/login/particles.js"></script>
+<script src="~/lib/login/demo/js/app.js"></script>
+<!-- stats.js -->
+<script src="~/lib/login/demo/js/lib/stats.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jsrender/jsrender.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+<script>
+    var count_particles, stats, update;
+
+    update = function () {
+        requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+</script>

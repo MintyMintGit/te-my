@@ -1,0 +1,33 @@
+﻿@using _1TE_MY.Models.DTO
+@model List<DropdownDTO>
+
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@{
+    Html.EJ().Grid<object>("ModulesGrid")
+               .Datasource((IEnumerable<object>)ViewBag.DataSource)
+                .Columns(col =>
+                {
+                    col.Field("Code").HeaderText(@DbRes.T("ModuleId","Registration")).Add();
+
+                    col.Field("Text").HeaderText(@DbRes.T("ModuleDescription","Registration")).Add();
+
+                    //col.Field("ModulePrice").HeaderText(@DbRes.T("ModulePrice","Registration")).Format("{0:C2}").Add();
+
+                    col.Field("IsSubscribe").HeaderText(@DbRes.T("Subscribe","Registration")).Template("#checkboxTemplate").Add();
+
+                }).IsResponsive(true).EnableResponsiveRow(true).Render();
+}
+
+<div class="box-footer float-right">
+    <button type="submit" class="btn btn-primary uppercase pull-right">next <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+</div>
+<script type="text/x-jsrender" id="checkboxTemplate">
+    <label class="checkbox-inline">
+        <input type="checkbox" checked data-toggle="toggle" data-size="mini">
+    </label>
+</script>

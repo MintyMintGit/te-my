@@ -1,0 +1,19 @@
+﻿@model OrderDTO
+@{
+    ViewData["Title"] = "Edit Orders";
+}
+
+<h1>Edit Order</h1>
+<div>
+    <form asp-controller="Order" asp-action="EditOrders" method="post" class="form-horizontal" role="form">
+        @if (!string.IsNullOrEmpty(@ViewBag.Message))
+        {
+            <div class="callout callout-danger">
+                @ViewBag.Message
+            </div>
+        }
+        @Html.Partial("_addUpdateOrdersPartial", @Model)
+    </form>
+</div>
+
+

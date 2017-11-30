@@ -1,0 +1,69 @@
+﻿@model  _1TE_MY.Models.DTO.Registration_UserInformation
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+
+@*<form id="formUserinformation">*@
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label for="Emailaddress">@DbRes.T("EmailId", "Registration")</label>
+				@Html.TextBoxFor(o=>o.Email, new { @class = "e-textbox", placeholder = DbRes.T("EmailId", "Registration") })
+				
+			</div>
+			<div class="form-group">
+				<label for="Emailaddress">@DbRes.T("MobileCountryCode", "Registration")</label>
+				@{Html.EJ().DropDownListFor(o => o.MobileCountryID).WatermarkText(DbRes.T("MobileCountryCode", "Registration")).Width("100%").Render(); }
+			</div>
+			<div class="form-group">
+				<label for="Emailaddress">@DbRes.T("SecurityQuestion", "Registration")</label>
+				@{Html.EJ().DropDownListFor(o => o.SecurityQuestion).WatermarkText(@DbRes.T("SecurityQuestion", "Registration")).Width("100%").Render(); }
+			</div>
+		</div>
+		<div class="col-md-6">
+
+			<div class="form-group">
+				<label for="Emailaddress">@DbRes.T("Name", "Registration")</label>
+				@Html.TextBoxFor(o => o.FullName, new { @class = "e-textbox", placeholder = DbRes.T("Name", "Registration") })
+
+			</div>
+			<div class="form-group">
+				<label for="Emailaddress">@DbRes.T("MobileNumber", "Registration")</label>
+				@Html.TextBoxFor(o => o.MobileNo, new { @class = "e-textbox", placeholder = DbRes.T("MobileNumber", "Registration") })
+
+			</div>
+			<div class="form-group">
+				<label for="Emailaddress">@DbRes.T("Answer", "Registration")</label>
+				@Html.TextBoxFor(o => o.Answer, new { @class = "e-textbox", placeholder = DbRes.T("Answer", "Registration") })
+
+			</div>
+		</div>
+		<div class="box-footer float-right">			
+			<button type="submit" class="btn btn-primary uppercase pull-right">@DbRes.T("Next", "Registration") <span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="Emailaddress">@DbRes.T("VALIDATEOTP", "Registration")</label>
+                <div class="controls">
+                    @Html.TextBoxFor(o => o.Otp, new { @class = "e-textbox", placeholder = DbRes.T("OTPNORECEIVEDVIASMS", "Registration") })
+
+                </div>
+
+            </div>
+
+           
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                 
+                <div class="controls" style="margin-top:25px">
+                    <button type="submit" class="btn btn-primary uppercase" style="margin-bottom:6px;"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> @DbRes.T("VerifyOTP", "Registration") </button>
+                    <button type="submit" class="btn btn-primary uppercase"> <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>  @DbRes.T("ResendOTP", "Registration")</button>
+                </div>
+            </div>
+        </div>
+	</div>
+@*</form>*@

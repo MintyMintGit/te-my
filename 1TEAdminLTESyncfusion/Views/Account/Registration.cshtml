@@ -1,0 +1,121 @@
+﻿@model _1TE_MY.Models.DTO.Registeration
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_RegisterLayout.cshtml";
+}
+@using Westwind.Globalization
+@using Westwind.Globalization.AspNetCore.Extensions
+
+<div id="tabContents" style="display:none;" >
+
+	<ul>
+
+		@*<li class="not-allowed"><a class="not-allowed" href="#UserInformation">@DbRes.T("Userinformation", "Registration")</a></li>
+
+		<li class="not-allowed"><a class="not-allowed" href="#CompanyInformation">@DbRes.T("CompanyInformation", "Registration")</a></li>
+		<li class="not-allowed"><a class="not-allowed" href="#ContactPersons">@DbRes.T("ContactPersons", "Registration")</a></li>
+
+		<li class="not-allowed"><a class="not-allowed" href="#Modules">@DbRes.T("Modules", "Registration")</a></li>
+		<li class="not-allowed"><a class="not-allowed" href="#Documents">@DbRes.T("Documents", "Registration")</a></li>
+
+		<li class="not-allowed"><a class="not-allowed" href="#Declaration">@DbRes.T("Declaration", "Registration")</a></li>
+		<li class="not-allowed"><a class="not-allowed" href="#RegistrationStatus">@DbRes.T("RegistrationStatus", "Registration")</a></li>*@
+
+		<li class="not-allowed"><a  href="#UserInformation">@DbRes.T("Userinformation", "Registration")</a></li>
+
+		<li class="not-allowed"><a  href="#CompanyInformation">@DbRes.T("CompanyInformation", "Registration")</a></li>
+		<li class="not-allowed"><a  href="#ContactPersons">@DbRes.T("ContactPersons", "Registration")</a></li>
+
+		<li class="not-allowed"><a  href="#Modules">@DbRes.T("Modules", "Registration")</a></li>
+		<li class="not-allowed"><a  href="#Documents">@DbRes.T("Documents", "Registration")</a></li>
+
+		<li class="not-allowed"><a  href="#Declaration">@DbRes.T("Declaration", "Registration")</a></li>
+		<li class="not-allowed"><a  href="#RegistrationStatus">@DbRes.T("RegistrationStatus", "Registration")</a></li>
+
+	</ul>
+
+	<div id="UserInformation">
+
+        @Html.Partial("~/Views/Account/PartialView/_UserInformation.cshtml", Model.Registration_UserInformation)
+
+
+
+
+	</div>
+
+	<div id="CompanyInformation">
+
+		@Html.Partial("~/Views/Account/PartialView/_CompanyInformation.cshtml", Model.Registration_CompanyInformation)
+	</div>
+
+	<div id="ContactPersons">
+		@Html.Partial("~/Views/Account/PartialView/_ContactPersons.cshtml", Model.Registration_ContactPerson)
+
+	</div>
+	<div id="Modules">
+
+        @Html.Partial("~/Views/Account/PartialView/_Modules.cshtml", Model.Registration_Modules)
+	</div>
+    <div id="Documents">
+        @Html.Partial("~/Views/Account/PartialView/_Documents.cshtml", Model.Registration_Documents)
+
+    </div>
+    <div id="Declaration">
+        @Html.Partial("~/Views/Account/PartialView/_Declaration.cshtml", Model.Registration_UserInformation)
+
+
+
+
+    </div>
+    <div id="RegistrationStatus">
+        @Html.Partial("~/Views/Account/PartialView/_RegistrationStatus.cshtml", Model.Registration_UserInformation)
+
+    </div>
+
+    </div>
+     
+ 
+
+@{ Html.EJ().Tab("tabContents").Render();}
+@section Scripts {
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+   <script type="text/javascript">
+       $(function () {
+           // declaration
+
+           $('button').click(function () {
+               // OpenNextTab(this);
+           });
+
+           //write logic to remove .not-allowed class
+           //if(SessionRegister!=null){}
+           //$(".not-allowed").each(function () {
+           //    $(this).removeClass("not-allowed");
+           //});
+
+           $(".not-allowed").click(function () {
+               return false;
+
+           });
+       });
+
+       function showTab() {
+           $("#tabContents").show();
+       }
+
+       window.onload = showTab;
+	   function OpenNextTab(control)
+	   { 
+           //alert("call");
+           var elements = $("#tabContents").find('li'), tempIndex, txt = "next"; //control.innerText.trim().toLowerCase();
+			   if (txt == "previous" && elements.index($("#tabContents").find('.e-active')) != 0)
+				   tempIndex = elements.index($("#tabContents").find('.e-active')) - 1;
+			   else if (txt == "next" && elements.index($("#tabContents").find('.e-active')) != elements.length - 1)
+				   tempIndex = elements.index($("#tabContents").find('.e-active')) + 1;
+			   (tempIndex != -1) && !(tempIndex > elements.length - 1) && $(elements[tempIndex]).trigger("click");
+
+	   }
+</script>
+     
+}
