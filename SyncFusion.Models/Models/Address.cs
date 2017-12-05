@@ -9,6 +9,7 @@ namespace _1TE_MY.Models.Models
 {
   public  class Address
     {
+        public int id { get; set; }
 	    public int CountryID { get; set; }
 		public int StateID { get; set; }
 		public int CityID { get; set; }

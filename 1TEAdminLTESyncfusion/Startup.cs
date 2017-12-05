@@ -120,6 +120,7 @@ namespace _1TEAdminLTESyncfusion
                     name: "default",
                     template: "{controller=Account}/{action=Login}/{id?}");
             });
+
         }
     }
 }

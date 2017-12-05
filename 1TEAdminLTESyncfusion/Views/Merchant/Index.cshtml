@@ -1,0 +1,34 @@
+﻿<h1>
+    Merchant profile listing
+</h1>
+<span class="glyphicon glyphicon-plus"></span>
+
+<ej-grid id="FlatGrid" allow-paging="true" allow-sorting="true" >
+    <e-datamanager url="@Url.Action("UrlDataMerchant","Merchant")" adaptor="UrlAdaptor" update-url="/Merchant/CellEditUpdate" insert-url="/Merchant/CellEditInsert" remove-url="/Merchant/CellEditDelete"></e-datamanager>
+    <e-edit-settings allow-adding="true" allow-editing="true" allow-deleting="true" edit-mode="Dialog"></e-edit-settings>
+    <e-toolbar-settings show-toolbar="true" toolbar-items='@new List<string> {"add","edit","delete","update","cancel"}' />
+    <e-page-settings page-size="10">
+    </e-page-settings>
+    <e-columns>
+        <e-column field="merchantID" is-primary-key="true" header-text="Merchant ID"></e-column>
+        <e-column field="merchantName" header-text="Merchant Name" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexName", true } })'  ></e-column>
+        <e-column field="companyRegisterationNumber" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })'  header-text="Company Registeration №" text-align="Left" ></e-column>
+        <e-column field="gstRegisterationNumber" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="GST Registeration Number" text-align="Left" ></e-column>
+    </e-columns>
+</ej-grid>
+@section Scripts {
+<script type="text/javascript">
+    $(function () {
+
+        $.validator.addMethod("regexName", function (value, element) {
+            return this.optional(element) || /^[a-z0-9._-]+$/i.test(value);
+        }, "Field must contain only letters, numbers, or dashes.");
+
+        $.validator.addMethod("regexCompanyGST", function (value, element) {
+            return this.optional(element) || /^[a-z0-9\s]+$/i.test(value);
+        }, "Field must contain only letters, numbers");
+
+    });
+</script>
+}
+
