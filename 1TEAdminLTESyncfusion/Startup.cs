@@ -17,6 +17,7 @@ using _1TE_MY.Services.Interfaces;
 using _1TE_MY.Services.Implementations;
 using _1TE_MY.Repository.Interfaces;
 using _1TE_MY.Repository.Implementations;
+using Newtonsoft.Json.Serialization;
 
 namespace _1TEAdminLTESyncfusion
 {
@@ -73,8 +74,9 @@ namespace _1TEAdminLTESyncfusion
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc().AddSessionStateTempDataProvider().AddViewLocalization()
                 .AddDataAnnotationsLocalization();
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
-             
+
             services.AddTransient<IViewLocalizer, DbResViewLocalizer>();
             services.AddSession();
 

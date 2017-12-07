@@ -15,25 +15,28 @@ namespace _1TE_MY.Controllers
     {
         public static List<Merchant> listMerchant = new List<Merchant>();
 
-        public MerchantController()
-        {
-            //Merchant test = new Merchant();
-            //test.CompanyRegisterationNumber = "123";
-            //test.GSTRegisterationNumber = "123";
-            //test.MerchantID = 555;
-            //test.MerchantName = "Dana";
-            //listMerchant.Add(test);
-        }
-
         // GET: Merchant
         public ActionResult Index()
         {
+            Merchant test = new Merchant();
+            test.CompanyRegisterationNumber = "123";
+            test.GSTRegisterationNumber = "123";
+            test.MerchantID = 555;
+            test.MerchantName = "Dana";
+
+            listMerchant.Add(test);
+            test = new Merchant();
+            test.CompanyRegisterationNumber = "456";
+            test.GSTRegisterationNumber = "456";
+            test.MerchantID = 777;
+            test.MerchantName = "Mima";
+            listMerchant.Add(test);
             return View();
         }
 
         public ActionResult UrlDataMerchant([FromBody]DataManager dm)
         {
-            IEnumerable data = listMerchant;
+            IEnumerable data = listMerchant.ToList();
             DataOperations operation = new DataOperations();
             if (dm.Sorted != null && dm.Sorted.Count > 0) //Sorting
             {
@@ -52,7 +55,9 @@ namespace _1TE_MY.Controllers
             {
                 data = operation.PerformTake(data, dm.Take);
             }
-            return Json(new { result = data, count = count });
+
+            var temp = Json(new { result = data, count = count });
+            return temp;
         }
 
         //Update the data
