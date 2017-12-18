@@ -17,14 +17,14 @@ namespace _1TE_MY.Services.Implementations
         {
             _registrationRepository = registrationRepository;
         }
-        public async Task<bool> SaveRegistartion(Registration_UserInformation registrationdto)
+        public async Task<int> SaveRegistartion(Registration_UserInformation registrationdto)
         {
             try
-            {
-                var registration = Mapper.Map<Registration_UserInformation, _1TE_MY.Models.Models.Registration>(registrationdto);
+            { 
+                var registration = Mapper.Map<Registration_UserInformation, _1TE_MY.Models.Models.Registeration>(registrationdto);
                 await _registrationRepository.SaveRegistartion(registration);
 
-                return true;
+                return registration.RegistrationID;
             }
             catch (Exception)
             {
@@ -47,13 +47,15 @@ namespace _1TE_MY.Services.Implementations
                 throw;
             }
         }
-        public async Task<Registration_UserInformation> GetRegistartionDetails(int RegistrationID)
+        public async Task<_1TE_MY.Models.DTO.Registeration> GetRegistartionDetails(int RegistrationID)
         {
             try
             {
+                _1TE_MY.Models.DTO.Registeration objreg =new Models.DTO.Registeration();
                 var usermodel =await _registrationRepository.GetRegistartionDetails(RegistrationID);
-                var registermodel =  Mapper.Map<_1TE_MY.Models.Models.Registration, Registration_UserInformation>(usermodel);
-                return registermodel;
+                var registermodel =  Mapper.Map<_1TE_MY.Models.Models.Registeration, Registration_UserInformation>(usermodel);
+                objreg.Registration_UserInformation = registermodel;
+                return objreg;
             }
             catch (Exception)
             {

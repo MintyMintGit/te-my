@@ -50,9 +50,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
-    <PackageReference Include="Syncfusion.EJ.AspNet.Core" Version="15.4600.0.17" />
+    <PackageReference Include="Syncfusion.EJ.AspNet.Core" Version="15.3600.0.33" />
     <PackageReference Include="Westwind.AspNetCore" Version="0.1.0" />
   </ItemGroup>
 
@@ -69,7 +70,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

@@ -94,10 +94,10 @@
            //    $(this).removeClass("not-allowed");
            //});
 
-           $(".not-allowed").click(function () {
-               return false;
+           //$(".not-allowed").click(function () {
+           //    return false;
 
-           });
+           //});
        });
 
        function showTab() {
@@ -105,17 +105,17 @@
        }
 
        window.onload = showTab;
-	   function OpenNextTab(control)
-	   { 
+       function OpenNextTab(control) {
            //alert("call");
            var elements = $("#tabContents").find('li'), tempIndex, txt = "next"; //control.innerText.trim().toLowerCase();
-			   if (txt == "previous" && elements.index($("#tabContents").find('.e-active')) != 0)
-				   tempIndex = elements.index($("#tabContents").find('.e-active')) - 1;
-			   else if (txt == "next" && elements.index($("#tabContents").find('.e-active')) != elements.length - 1)
-				   tempIndex = elements.index($("#tabContents").find('.e-active')) + 1;
-			   (tempIndex != -1) && !(tempIndex > elements.length - 1) && $(elements[tempIndex]).trigger("click");
+           if (txt == "previous" && elements.index($("#tabContents").find('.e-active')) != 0)
+               tempIndex = elements.index($("#tabContents").find('.e-active')) - 1;
+           else if (txt == "next" && elements.index($("#tabContents").find('.e-active')) != elements.length - 1)
+               tempIndex = elements.index($("#tabContents").find('.e-active')) + 1;
+           (tempIndex != -1) && !(tempIndex > elements.length - 1) && $(elements[tempIndex]).trigger("click");
 
-	   }
+       }
+     
 </script>
      
 }

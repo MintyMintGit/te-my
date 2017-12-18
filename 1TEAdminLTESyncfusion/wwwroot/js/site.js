@@ -1,5 +1,4 @@
 ﻿// Write your JavaScript code.
-
 $(function () {
 
     $.validator.addMethod("regexName", function (value, element) {

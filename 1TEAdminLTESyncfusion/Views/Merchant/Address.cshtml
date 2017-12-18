@@ -1,6 +1,5 @@
-﻿<h1 class="text-uppercase">
-    Merchant profile listing
-</h1>
+﻿<h1>Hello from Address</h1>
+
 <a class="bs-glyphicons" href="/Merchant/Add">
     <span class="glyphicon glyphicon-plus"></span>
 </a>
@@ -13,7 +12,7 @@
     <e-page-settings page-size="10">
     </e-page-settings>
     <e-columns>
-        <e-column field="MerchantCodeID"  visible="false" is-primary-key="true" header-text="Merchant ID"></e-column>
+        <e-column field="MerchantCodeID" visible="false" is-primary-key="true" header-text="Merchant ID"></e-column>
         <e-column field="MerchantName" header-text="Merchant Name" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexName", true } })'></e-column>
         <e-column field="RegNo" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Company Registeration №" text-align="Left"></e-column>
         <e-column field="GSTNo" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="GST Registeration Number" text-align="Left"></e-column>

@@ -25,6 +25,18 @@ namespace _1TE_MY.Models.DTO
         [Required(ErrorMessage = "ConfirmPassword is required")]
         public string ConfirmPassword { get; set; }
         [Required(ErrorMessage = "Otp is required")]
-        public Int32 Otp { get; set; }
+       
+        public int RegistrationID { get; set; }
+        public bool? IsOTPSent { get; set; }
+
+        public string OTPNo { get; set; }
+
+        public DateTime? OTPSentDate { get; set; }
+        public bool? IsOTPVerified { get; set; }
+
+        public DateTime? OPTVerifiedOn { get; set; }
+        public bool? IsOTPReSent { get; set; }
+
+        public byte? OTPSentCount { get; set; }
     }
 }

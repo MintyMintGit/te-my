@@ -1,0 +1,37 @@
+﻿<h1>This is new Address</h1>
+
+<a class="bs-glyphicons" id="addAddress">
+    <span class="glyphicon glyphicon-plus"></span>
+</a>
+
+
+<ej-grid id="FlatGrid" allow-paging="true" allow-sorting="true" allow-filtering="true" show-column-chooser="true">
+    <e-datamanager url="@Url.Action("UrlDataAddress","Address")" adaptor="UrlAdaptor" update-url="/Merchant/CellEditUpdate" remove-url="/Merchant/CellEditDelete"></e-datamanager>
+    <e-edit-settings allow-adding="true" allow-editing="true" allow-deleting="true" edit-mode="Dialog"></e-edit-settings>
+    <e-toolbar-settings show-toolbar="true" toolbar-items='@new List<string> {"edit","delete","update","cancel"}' />
+    <e-page-settings page-size="10">
+    </e-page-settings>
+    <e-columns>
+        <e-column field="AddressID" visible="false" is-primary-key="true" header-text="Merchant ID"></e-column>
+        <e-column field="Action" header-text="Action" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexName", true } })'></e-column>
+        <e-column field="Address1" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Address1" text-align="Left"></e-column>
+        <e-column field="Address2" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Address2" text-align="Left"></e-column>
+        <e-column field="Address3" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Address3" text-align="Left"></e-column>
+        <e-column field="StateID" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="State" text-align="Left"></e-column>
+        <e-column field="CityID" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="City" text-align="Left"></e-column>
+        <e-column field="PostCode" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="PostCode" text-align="Left"></e-column>
+        <e-column field="Email" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Email" text-align="Left"></e-column>
+        <e-column field="Website" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Website" text-align="Left"></e-column>
+        <e-column field="Phone" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Tel No" text-align="Left"></e-column>
+        <e-column field="Fax" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Fax No" text-align="Left"></e-column>
+        <e-column field="Country" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Country" text-align="Left"></e-column>
+        <e-column field="Billing" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Billing" text-align="Left"></e-column>
+        <e-column field="Operation" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Operation" text-align="Left"></e-column>
+        <e-column field="Pickup" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Pickup" text-align="Left"></e-column>
+        <e-column field="Delivery" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Delivery" text-align="Left"></e-column>
+        <e-column field="Active" validation-rules='@(new Dictionary<string,object> { {"required",true}, {"regexCompanyGST", true } })' header-text="Active" text-align="Left"></e-column>
+    </e-columns>
+</ej-grid>
+@section Scripts {
+
+}

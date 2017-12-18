@@ -71,11 +71,14 @@ namespace _1TEAdminLTESyncfusion
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IMasterService, MasterService>();
             services.AddScoped<IMasterRepository, MasterRepository>();
+            services.AddScoped<IMerchantService, MerchantService>();
+            services.AddScoped<IMerchantRepository, MerchantRepository>();
+            services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc().AddSessionStateTempDataProvider().AddViewLocalization()
                 .AddDataAnnotationsLocalization();
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
-
 
             services.AddTransient<IViewLocalizer, DbResViewLocalizer>();
             services.AddSession();
@@ -122,7 +125,6 @@ namespace _1TEAdminLTESyncfusion
                     name: "default",
                     template: "{controller=Account}/{action=Login}/{id?}");
             });
-
         }
     }
 }

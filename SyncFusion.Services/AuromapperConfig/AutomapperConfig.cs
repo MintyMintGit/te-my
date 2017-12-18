@@ -5,6 +5,7 @@ using System;
 using AutoMapper;
 using System.Globalization;
 using _1TE_MY.Models.Models;
+using _1TE_MY.Models.Models.DTO;
 
 namespace SyncFusion.Services
 {
@@ -16,7 +17,7 @@ namespace SyncFusion.Services
             MapperConfigurationExpression cfg = new MapperConfigurationExpression();
 
             cfg.CreateMap<OrderDTO, Orders>().ReverseMap();
-            cfg.CreateMap<Registration_UserInformation, Registration>().ReverseMap();
+            cfg.CreateMap<Registration_UserInformation, _1TE_MY.Models.Models.Registeration>().ReverseMap();
             cfg.CreateMap<Registration_ContactPerson, Contact>().ReverseMap();
             cfg.CreateMap<CountryCodeDTO, Country>().ReverseMap()
               .ForMember(dest => dest.DisplayText, opts => opts.ResolveUsing(src =>
@@ -106,12 +107,14 @@ namespace SyncFusion.Services
             //}));
             cfg.CreateMap<OrderDTO, OrderDetails>();
 
+            cfg.CreateMap<MerchantDTO, Merchant>();
+            cfg.CreateMap<Merchant, MerchantDTO>();
 
 
 
 
 
-			cfg.CreateMap<Registration_CompanyInformation, Registration>().ReverseMap()
+            cfg.CreateMap<Registration_CompanyInformation, _1TE_MY.Models.Models.Registeration>().ReverseMap()
 				.ForMember(dest => dest.CompanyName, opts => opts.ResolveUsing(src =>
 				src.CompanyName))
 				.ForMember(dest => dest.OganizationType, opts => opts.ResolveUsing(src =>
@@ -129,22 +132,22 @@ namespace SyncFusion.Services
 				//.ForMember(dest => dest.ShippingAgentCode, opts => opts.ResolveUsing(src =>
 				//src.AgentCode))
 				;
-			cfg.CreateMap<Registration_CompanyInformation, Address>().ReverseMap()
-				.ForMember(dest => dest.Address1, opts => opts.ResolveUsing(src =>
-				src.raAddress1))
-				.ForMember(dest => dest.Address2, opts => opts.ResolveUsing(src =>
-				src.raAddress2))
-				.ForMember(dest => dest.Address3, opts => opts.ResolveUsing(src =>
-				src.raAddress3))
-				.ForMember(dest => dest.Country, opts => opts.ResolveUsing(src =>
-				src.CountryID))
-				.ForMember(dest => dest.State, opts => opts.ResolveUsing(src =>
-				src.StateID))
-				.ForMember(dest => dest.City, opts => opts.ResolveUsing(src =>
-				src.CityID))
-				.ForMember(dest => dest.PostalCode, opts => opts.ResolveUsing(src =>
-				src.raPostCode))
-				;
+			//cfg.CreateMap<Registration_CompanyInformation, Address>().ReverseMap()
+			//	.ForMember(dest => dest.Address1, opts => opts.ResolveUsing(src =>
+			//	src.raAddress1))
+			//	.ForMember(dest => dest.Address2, opts => opts.ResolveUsing(src =>
+			//	src.raAddress2))
+			//	.ForMember(dest => dest.Address3, opts => opts.ResolveUsing(src =>
+			//	src.raAddress3))
+			//	.ForMember(dest => dest.Country, opts => opts.ResolveUsing(src =>
+			//	src.CountryID))
+			//	.ForMember(dest => dest.State, opts => opts.ResolveUsing(src =>
+			//	src.StateID))
+			//	.ForMember(dest => dest.City, opts => opts.ResolveUsing(src =>
+			//	src.CityID))
+			//	.ForMember(dest => dest.PostalCode, opts => opts.ResolveUsing(src =>
+			//	src.raPostCode))
+			//	;
 			cfg.AllowNullDestinationValues = true;
 
             Mapper.Initialize(cfg);

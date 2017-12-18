@@ -1,0 +1,378 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model _1TE_MY.Models.Models.DTO.MerchantDTO
+
+<div class="box-body text-uppercase">
+    <h1>Merchant Profile</h1>
+
+
+
+    <form id="createMerchantForm" asp-controller="Merchant" asp-action="CreateMerchant" asp-antiforgery="true" data-ajax-method="POST">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Merchant name</label>
+                                <input class="form-control" asp-for="MerchantName" />
+                                <span asp-validation-for="MerchantName"></span>
+                            </div>
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>Business Registration no</label>
+                                <input class="form-control" asp-for="RegNo" />
+                                <span asp-validation-for="RegNo"></span>
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>gst no</label>
+                                <input class="form-control" asp-for="GSTNo" />
+                                <span asp-validation-for="GSTNo"></span>
+                            </div>
+                            <!-- /.form-group -->
+                            <div class="form-group">
+                                <label>website</label>
+                                <input class="form-control" asp-for="WebSite" />
+                                <span asp-validation-for="WebSite"></span>
+                            </div>
+                            <!-- /.form-group -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!--icons start -->
+                <ul class="bs-glyphicons">
+                    @for (var counter = 0; counter < 12; counter++)
+                    {
+                        <text>
+                            <li class="col-xs-2 col-sm-3 col-md-2">
+                                <i class="fa fa-star fa-2" aria-hidden="true"></i>
+                                <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                            </li>
+                        </text>
+                    }
+                    @*<li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>
+                    <li class="col-md-2 col-xs-3">
+                        <span class="glyphicon glyphicon-asterisk"></span>
+                        <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                    </li>*@
+                </ul>
+
+                <!--icons end-->
+            </div>
+
+        </div>
+
+        <!--buttons-->
+        <div class="row box-body">
+            <div class="col-md-2 pull-right">
+                <button type="button" id="back" class="btn btn-block btn-default"><i class="fa fa-fw fa-angle-double-left"></i> Back</button>
+            </div>
+
+            <div class="col-md-2 pull-right">
+                <button type="button" id="save" class="btn btn-block btn-default"><i class="fa fa-save"></i> Save</button>
+            </div>
+        </div>
+        <!--end buttons-->
+
+        <!--ej-Tag Helper code to render Tab-->
+
+        <div class="col-md-12">
+
+            <ej-tab id="merchantProfile">
+                <e-tab-items>
+                    <e-tab-item id="general" text="general">
+                        <e-content-template>
+
+                            <!--began test-->
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group"><!--this is first block inputs-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="BillingCustomer">BILLING CUSTOMER</label>
+                                                <input asp-for="BillingCustomer" class="form-control" />
+                                                <span asp-validation-for="BillingCustomer"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="BusinessType">BUSINESS TYPE</label>
+                                                @*<input asp-for="BusinessType" class="form-control"/>*@
+@*                                                <label asp-for="CompanyId"></label>*@
+                                                <select asp-for="BusinessType" class="form-control" asp-items="ViewBag.businessType"></select>
+                                                <span asp-validation-for="BusinessType"></span>
+                                            </div>
+                                        </div>
+                                    </div><!--end first form group-->
+                                    <div class="form-group"><!--this is second block inputs-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="AgentCode">CUSTOM AGENT CODE</label>
+                                                <input asp-for="AgentCode" class="form-control" /><!--need clarify-->
+                                                <span asp-validation-for="AgentCode"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="ShippingAgentCode">SHIPPING AGENT CODE</label>
+                                                <input asp-for="ShippingAgentCode" class="form-control" />
+                                                <span asp-validation-for="ShippingAgentCode"></span>
+                                            </div>
+                                        </div>
+                                    </div><!--end second form group-->
+
+                                    <div class="form-group"><!--this is third block inputs-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="AgentCode">FREE ZONE AGENT CODE</label>
+                                                <input asp-for="FreeZoneAgentCode" class="form-control" />
+                                                <span asp-validation-for="FreeZoneAgentCode"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="AgentCode">DIRECT AGENT CODE</label>
+                                                <input asp-for="DirectDeclareAgentCode" class="form-control" />
+                                                <span asp-validation-for="DirectDeclareAgentCode"></span>
+                                            </div>
+                                        </div>
+                                    </div><!--end third form group-->
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="Remarks">REMARKS / NOTES</label>
+                                                <textarea class="form-control" rows="5" asp-for="Remarks"></textarea>
+                                                <span asp-validation-for="Remarks"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4"><!--block with checkboxes-->
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsBillingCustomer" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>BILLING CUSTOMER</span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsShipper" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>SHIPPER / EXPORTER / CONSIGNOR / SELLER</span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsPrincipal" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>PRINCIPAL</span>
+                                    </p>
+                                    
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsConsignee" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>IMPORTER / CONSIGNEE / BUYER</span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsFreightForwarder" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>FREIGHT FORWARDER</span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsForwardingAgent" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            FORWARDING AGENT
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsOriginAgent" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            ORIGIN AGENT
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsDestinationAgent" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            DESTINATION AGENT
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsHaulier" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            HAULIER / DRYAGE
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsAirlineOperator" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            AIR LINE OPERATOR
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsShippingAgent" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            SHIPPING AGENT
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsTransporter" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            TRANSPORTER
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsVendor" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            VENDOR
+                                        </span>
+                                    </p>
+                                    <p>
+                                        <label class="switch">
+                                            <input asp-for="IsPortOperator" />
+                                            <span class="slider round"></span>
+                                        </label>
+                                        <span>
+                                            PORT / TERMINAL OPERATOR
+                                        </span>
+                                    </p>
+                                </div><!--end block with checkboxes-->
+                            </div>
+
+                            <!--end test -->
+                        </e-content-template>
+                    </e-tab-item>
+                    <e-tab-item id="address" text="address">
+                        <e-content-template>
+                            @Html.Partial("~/Views/Address/Index.cshtml")
+                        </e-content-template>
+                    </e-tab-item>
+                    <e-tab-item id="billing" text="billing" >
+                        <e-content-template>
+                            @Html.Partial("~/Views/Merchant/Billing.cshtml")
+                        </e-content-template>
+                    </e-tab-item>
+                </e-tab-items>
+            </ej-tab>
+        </div>
+        <!--finished tag helper-->
+
+
+    </form>
+
+    
+    <ej-dialog id="dialogIconSave" title="Save" width="325" enable-resize="false" is-responsive="true" show-footer="true" footer-template-id="samplefooter" before-open="onbeforeopen" close="onDialogClose" show-on-init="false">
+        <e-content-template>
+            <div>
+                Are you sure want to make these changes ?
+            </div>
+        </e-content-template>
+    </ej-dialog>
+    
+    <ej-dialog id="dialogIconBack" title="Back" width="325" enable-resize="false" is-responsive="true" show-footer="true" footer-template-id="samplefooterBack" before-open="onbeforeopenBack" close="onDialogClose" show-on-init="false">
+        <e-content-template>
+            <div>
+                Do you really wants to go back?
+            </div>
+        </e-content-template>
+    </ej-dialog>
+
+    @section Scripts {
+    <script src="~/js/createNewMerchant.js"></script>
+    <script id="samplefooter" type="text/x-jsrender">
+        <div class="footerspan" style="float:right">
+            <button id='btn1'>Ok</button>
+            <button id='btn2'>Cancel</button>
+        </div>
+    </script>
+    <script id="samplefooterBack" type="text/x-jsrender">
+        <div class="footerspan" style="float:right">
+            <button id='btn1Back'>Ok</button>
+            <button id='btn2Back'>Cancel</button>
+        </div>
+    </script>
+    }
+
+</div>

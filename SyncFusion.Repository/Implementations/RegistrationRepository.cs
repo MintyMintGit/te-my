@@ -16,15 +16,29 @@ namespace _1TE_MY.Repository.Implementations
         {
             _context = context;
         }
-        public async Task<bool> SaveRegistartion(Registration registration)
+        public async Task<bool> SaveRegistartion(_1TE_MY.Models.Models.Registeration registration)
         {
             try
             {
-                _context.Add(registration);
+                if (registration.RegistrationID > 0)
+                {
+                    var regmodel = _context.Registration.Where(o => o.RegistrationID == registration.RegistrationID).FirstOrDefault();
+                    regmodel.FullName = registration.FullName;
+                    regmodel.MobileNo = registration.MobileNo;
+                    regmodel.MobileCountryID = registration.MobileCountryID;
+                    regmodel.SecurityQuestion = registration.SecurityQuestion;
+                    regmodel.Answer = registration.Answer;
+                    _context.Update(regmodel);
+                }
+                else
+                {
+                    _context.Add(registration);
+
+                }
                 await _context.SaveChangesAsync();
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
@@ -44,13 +58,11 @@ namespace _1TE_MY.Repository.Implementations
                 throw;
             }
         }
-        public async Task<Registration> GetRegistartionDetails(int RegistrationID)
+        public async Task<_1TE_MY.Models.Models.Registeration> GetRegistartionDetails(int RegistrationID)
         {
             try
             {
                 return await _context.Registration.Where(o => o.RegistrationID == RegistrationID).ToAsyncEnumerable().FirstOrDefault();
-
-
             }
             catch (Exception)
             {
@@ -62,7 +74,7 @@ namespace _1TE_MY.Repository.Implementations
 		{
 			try
 			{
-				var  data= _context.Registration.Where(o => o.RegistrationID == registration.RegistrationId).ToAsyncEnumerable().FirstOrDefault();
+				var  data= await _context.Registration.Where(o => o.RegistrationID == registration.RegistrationId).ToAsyncEnumerable().FirstOrDefault();
 				
 
 				return new Registration_CompanyInformation();

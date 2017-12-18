@@ -8,9 +8,9 @@ namespace _1TE_MY.Services.Interfaces
 {
    public interface IRegistrationService
     {
-        Task<bool> SaveRegistartion(Registration_UserInformation registrationdto);
+        Task<int> SaveRegistartion(Registration_UserInformation registrationdto);
         Task<bool> SaveUser(Registration_UserInformation user);
-        Task<Registration_UserInformation> GetRegistartionDetails(int RegistrationID);
+        Task<_1TE_MY.Models.DTO.Registeration> GetRegistartionDetails(int RegistrationID);
 		Task<Registration_CompanyInformation> UpdateCompanyInformation(Registration_CompanyInformation registrationdto);
 	}
 }

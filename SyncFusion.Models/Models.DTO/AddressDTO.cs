@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 using System.Spatial;
+using System.Text;
 
-namespace _1TE_MY.Models.Models
+namespace _1TE_MY.Models.Models.DTO
 {
-    [Table("Address", Schema = "Root")]
-    public class Address
+    public class AddressDTO
     {
-        [Key]
         public int AddressID { get; set; }
         public int rcID { get; set; }
         public string Address1 { get; set; }

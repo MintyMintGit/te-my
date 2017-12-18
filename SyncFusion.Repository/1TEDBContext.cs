@@ -19,6 +19,7 @@ namespace _1TE_MY.Repository
         public DbSet<Customers> Customers { get; set; }
         public DbSet<Shippers> Shippers { get; set; }
         public DbSet<Products> Products { get; set; }
+        public DbSet<Merchant> Merchants { get; set; }
 
         public DbSet<Contact> Contact { get; set; }
         public DbSet<UDC_Details> UDC_Detail { get; set; }
@@ -26,15 +27,12 @@ namespace _1TE_MY.Repository
         public DbSet<Country> Country { get; set; }
         public DbSet<State> State { get; set; }
         public DbSet<City> City { get; set; }
-        public DbSet<Registration> Registration { get; set; }
-		public DbSet<Address> Address { get; set; }
+        public DbSet<_1TE_MY.Models.Models.Registeration> Registration { get; set; }
+		public DbSet<Address> Addresses { get; set; }
 		
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Orders>().HasOne(e => e.OrderDetails).WithOne().HasForeignKey<OrderDetails>();
-
         }
-
-
     }
 }

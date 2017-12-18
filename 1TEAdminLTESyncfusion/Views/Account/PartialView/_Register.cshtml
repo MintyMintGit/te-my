@@ -2,7 +2,7 @@
 @using Westwind.Globalization
 @using Westwind.Globalization.AspNetCore.Extensions
 
-<form asp-controller="Account" asp-action="SaveRegistration" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace" data-ajax-update="#acontent">
+<form asp-controller="Account" asp-action="SaveRegistration" data-ajax="true" data-ajax-method="POST"  data-ajax-success="UserRegister">
 
     <div class="col-md-12">
         <!-- general form elements -->
@@ -79,3 +79,7 @@
 
     </div>
     </form>
+@section Scripts {
+   
+<script src="~/js/Registration.js"></script> 
+    }

@@ -7,7 +7,7 @@ using System.Text;
 namespace _1TE_MY.Models.Models
 {
     [Table("Registration", Schema = "Root")]
-    public class Registration
+    public class Registeration
     {
         [Key]
         public int RegistrationID { get; set; }

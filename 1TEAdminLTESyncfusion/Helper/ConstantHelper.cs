@@ -12,4 +12,10 @@ namespace _1TE_MY.Helper
         public const int Module = 12;
 		public const int OrganisationModule = 50;
 	}
+    public class SessionConstants
+    {
+        public const string UserSessionKey = "UserSessionKey";
+        public const string RegistartionId = "RegistartionId";
+
+    }
 }
